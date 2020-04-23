@@ -134,6 +134,7 @@ async function publishPackage(dir, config, version) {
     "publish",
     "--non-interactive",
     "--new-version",
+    "--access=public",
     version
   );
 
