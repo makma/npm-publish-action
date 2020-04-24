@@ -130,12 +130,6 @@ async function createTag(dir, config, version) {
 async function publishPackage(dir, config, version) {
   console.log(`dir: ${dir}`);
   
-  const pwd = await run(dir, "pwd");
-  console.log(`pwd: ${pwd}`);
-  
-  const dircmd = await run(dir, "ls", "-alR");
-  console.log(`dircmd: ${dircmd}`);
-  
   await run(
     dir,
     "yarn",
@@ -158,16 +152,12 @@ function run(cwd, command, ...args) {
     });
     const buffers = [];
     proc.stderr.on("data", data => buffers.push(data));
-    proc.stdout.on("end", data => buffers.push(data));
     proc.on("error", () => {
       reject(new Error(`command failed: ${command}`));
     });
     proc.on("exit", code => {
       if (code === 0) {
-        const stdout = Buffer.concat(buffers)
-          .toString("utf8")
-          .trim();
-        resolve(stdout);
+        resolve(true);
       } else {
         const stderr = Buffer.concat(buffers)
           .toString("utf8")
