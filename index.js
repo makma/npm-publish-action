@@ -68,7 +68,7 @@ async function processDirectory(dir, config, commits) {
   checkCommit(config, commits, version);
 
   await createTag(dir, config, version);
-  await publishPackage(dir, config, version);
+  await publishPackage("/home/runner/work/sourcebit-source-kontent/sourcebit-source-kontent", config, version);
 
   console.log("Done.");
 }
