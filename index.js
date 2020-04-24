@@ -127,9 +127,14 @@ async function createTag(dir, config, version) {
   console.log("Tag has been created successfully:", tagName);
 }
 
-async function publishPackage(dir, config, version) { 
-  await run(dir, "pwd");
-  await run(dir, "ls", "-alR");
+async function publishPackage(dir, config, version) {
+  console.log(`dir: ${dir}`);
+  
+  const pwd = await run(dir, "pwd");
+  console.log(`pwd: ${pwd}`);
+  
+  const dircmd = await run(dir, "ls", "-alR");
+  console.log(`dircmd: ${dircmd}`);
   
   await run(
     dir,
