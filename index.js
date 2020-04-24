@@ -133,8 +133,8 @@ async function publishPackage(dir, config, version) {
     "yarn",
     "publish",
     "--non-interactive",
-    "--new-version",
     "--access=public",
+    "--new-version",
     version
   );
 
