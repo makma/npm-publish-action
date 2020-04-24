@@ -158,7 +158,7 @@ function run(cwd, command, ...args) {
     });
     const buffers = [];
     proc.stderr.on("data", data => buffers.push(data));
-    proc.stdout.on("data", data => buffers.push(data));
+    proc.stdout.on("end", data => buffers.push(data));
     proc.on("error", () => {
       reject(new Error(`command failed: ${command}`));
     });
