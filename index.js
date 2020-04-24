@@ -130,7 +130,7 @@ async function createTag(dir, config, version) {
 async function publishPackage(dir, config, version) {
   console.log(`dir: ${dir}`);
   
-  await run(dir, "npm", "install" "-g", "yarn");
+  await run(dir, "npm", "install", "-g", "yarn");
   
   await run(
     dir,
