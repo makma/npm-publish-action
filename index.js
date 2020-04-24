@@ -127,7 +127,9 @@ async function createTag(dir, config, version) {
   console.log("Tag has been created successfully:", tagName);
 }
 
-async function publishPackage(dir, config, version) {
+async function publishPackage(dir, config, version) { 
+  console.log('Current dir publish context: ${dir}');
+  
   await run(
     dir,
     "yarn",
