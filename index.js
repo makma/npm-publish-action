@@ -129,7 +129,7 @@ async function createTag(dir, config, version) {
 
 async function publishPackage(dir, config, version) { 
   await run(dir, "pwd");
-  await run(dir, `ls -alR --ignore="node_modules"`);
+  await run(dir, `ls -alR`);
   await run(dir, "tree");
   
   await run(
