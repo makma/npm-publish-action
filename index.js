@@ -163,7 +163,7 @@ function run(cwd, command, ...args) {
     });
     proc.on("exit", code => {
       if (code === 0) {
-        resolve(true);
+        resolve(stdout);
       } else {
         const stderr = Buffer.concat(buffers)
           .toString("utf8")
